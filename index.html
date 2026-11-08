@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Agent Operator — AI employees that run 24/7</title>
+<meta name="description" content="I build AI employees and automations that run 24/7 — fixed price, working delivery, docs, walkthrough and support included.">
+<meta property="og:title" content="The Agent Operator — AI employees that run 24/7">
+<meta property="og:description" content="Fixed price. Working delivery. Docs, video walkthrough, and post-delivery support included.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%230d1117'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='8'%20fill='%233fb950'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#e6edf3;
+  --muted:#8b949e; --accent:#58a6ff; --green:#3fb950; --orange:#f0883e;
+  --mono:SF Mono,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;font-size:16px}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.muted{color:var(--muted)}
+.center{text-align:center}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.85);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+.nav.scrolled{border-bottom-color:var(--border);box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.nav-inner{display:flex;align-items:center;gap:20px;padding:14px 24px;max-width:1100px;margin:0 auto}
+.brand{font-weight:700;font-size:17px;color:var(--text);white-space:nowrap}
+.brand:hover{text-decoration:none}
+.links{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
+.links a{color:var(--muted);font-size:14.5px}
+.links a:hover{color:var(--text);text-decoration:none}
+/* buttons */
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid transparent;transition:filter .15s}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn-primary{background:var(--accent);color:#0d1117}
+.btn-ghost{border-color:var(--border);color:var(--text)}
+.btn.small{padding:8px 14px;font-size:13.5px}
+/* hero */
+.hero{padding:110px 24px 90px;max-width:1100px;margin:0 auto}
+.hero h1{font-size:48px;line-height:1.15;font-weight:800;letter-spacing:-.5px;max-width:880px}
+.hero .sub{font-size:20px;color:var(--muted);margin:22px 0 34px;max-width:720px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+/* sections */
+.section{padding:88px 24px;max-width:1100px;margin:0 auto}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:2.5px;color:var(--accent);margin-bottom:10px}
+.section h2{font-size:32px;line-height:1.2;font-weight:750;letter-spacing:-.3px;margin-bottom:40px;max-width:760px}
+/* cards */
+.grid{display:grid;gap:18px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:24px;position:relative}
+.card h3{font-size:17.5px;margin-bottom:10px}
+.card p{color:var(--muted);font-size:14.5px}
+.card .tag{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:13px}
+.card .price{font-family:var(--mono);font-size:30px;color:var(--green);font-weight:700;margin-bottom:12px}
+.card ul{list-style:none;margin:6px 0 20px}
+.card li{color:var(--muted);font-size:14.5px;padding:5px 0 5px 18px;position:relative}
+.card li::before{content:"—";position:absolute;left:0;color:var(--border)}
+.card .btn{width:100%;text-align:center}
+.card.featured{border-color:var(--green)}
+.badge{position:absolute;top:-11px;right:18px;background:var(--green);color:#0d1117;font-size:12px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:6px}
+/* steps */
+.steps{list-style:none;max-width:780px;counter-reset:step}
+.steps li{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--border)}
+.steps li:last-child{border-bottom:none}
+.steps .num{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--green);min-width:34px}
+.steps b{display:block;font-size:16.5px;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:15px}
+/* faq */
+details{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:12px;max-width:780px}
+summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--muted);font-size:20px}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);font-size:14.5px;margin-top:12px}
+/* footer */
+footer{border-top:1px solid var(--border);padding:44px 24px 56px;margin-top:40px}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14.5px;margin-bottom:14px}
+.foot-links .dot{color:var(--border)}
+footer .copy{color:var(--muted);font-size:13.5px}
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
+.reveal.in{opacity:1;transform:none}
+/* responsive */
+@media(max-width:980px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:38px}
+}
+@media(max-width:720px){
+  .grid-4,.grid-3{grid-template-columns:1fr}
+  .hero{padding:70px 24px 60px}
+  .hero h1{font-size:32px}
+  .hero .sub{font-size:17px}
+  .section{padding:56px 24px}
+  .section h2{font-size:26px}
+  .nav-inner{flex-wrap:wrap;gap:10px}
+  .links{margin-left:0;order:3;width:100%;gap:14px}
+}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">The Agent Operator</a>
+    <nav class="links">
+      <a href="#why">Why us</a>
+      <a href="#packages">Packages</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <a class="btn btn-primary small" href="https://t.me/TBD_AGENT_OPERATOR"><!-- REPLACE: telegram username -->Talk on Telegram</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero reveal">
+    <h1>I build AI employees that run 24/7 — and I run them in production before they run for you.</h1>
+    <p class="sub">Fixed price. Working delivery. Docs, video walkthrough, and post-delivery support included. No hourly surprises, no retainers you can't cancel.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#packages">See packages</a>
+      <a class="btn btn-ghost" href="https://t.me/TBD_AGENT_OPERATOR">Talk on Telegram</a>
+    </div>
+  </section>
+
+  <section class="section reveal" id="why">
+    <p class="kicker">WHY US</p>
+    <h2>I don't sell demos. I ship systems that already run in my production.</h2>
+    <div class="grid grid-4">
+      <article class="card">
+        <h3>A 24/7 multi-agent ops desk</h3>
+        <p>71 specialized AI agents I coordinate daily — planning, research, code, QA — with checkpointed state, so work survives crashes and restarts.</p>
+        <a class="tag" href="https://github.com/origit892-stack/Projects" target="_blank" rel="noopener">code portfolio →</a>
+      </article>
+      <article class="card">
+        <h3>A store run by API</h3>
+        <p>124 products, worldwide shipping, operated end-to-end through the official API: GET before write, read-back verification after every change.</p>
+        <a class="tag" href="https://openshelf.1st4offers.com" target="_blank" rel="noopener">live storefront →</a>
+      </article>
+      <article class="card">
+        <h3>An unattended publishing pipeline</h3>
+        <p>Finds licensed source material, cuts vertical video, publishes twice a day with a dedup ledger and failure alerts.</p>
+        <a class="tag" href="https://www.youtube.com/@PowerPlayPalace" target="_blank" rel="noopener">the channel →</a>
+      </article>
+      <article class="card">
+        <h3>Full reverse-engineering passes</h3>
+        <p>554/554 files decoded on a commercial obfuscated app: route map, auth layers, everything documented.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section reveal" id="packages">
+    <p class="kicker">PACKAGES</p>
+    <h2>Fixed price. Delivered working.</h2>
+    <div class="grid grid-3">
+      <article class="card">
+        <h3>One Task</h3>
+        <p class="price">$300</p>
+        <ul>
+          <li>One workflow, up to 2 integrations, 1 AI step</li>
+          <li>Tested, documented, 3-day support</li>
+          <li>5 days</li>
+        </ul>
+        <a class="btn btn-primary" href="https://t.me/TBD_AGENT_OPERATOR">Start on Telegram</a>
+      </article>
+      <article class="card featured">
+        <span class="badge">MOST PICKED</span>
+        <h3>AI Employee</h3>
+        <p class="price">$900</p>
+        <ul>
+          <li>A full agent for one business role: customer replies, lead qualification, or document processing</li>
+          <li>RAG over your docs, guardrails, human handoff</li>
+          <li>Video walkthrough, 14-day support, 10 days</li>
+        </ul>
+        <a class="btn btn-primary" href="https://t.me/TBD_AGENT_OPERATOR">Start on Telegram</a>
+      </article>
+      <article class="card">
+        <h3>Agent System</h3>
+        <p class="price">$2,000+</p>
+        <ul>
+          <li>Multi-agent system, 3+ integrations, logging and dashboard</li>
+          <li>30-day support, 20 days</li>
+        </ul>
+        <a class="btn btn-primary" href="https://t.me/TBD_AGENT_OPERATOR">Start on Telegram</a>
+      </article>
+    </div>
+    <p class="muted center" style="margin-top:22px">Retainers from $35/hr for ongoing work. Optional care plans $150-300/mo, cancel anytime.</p>
+  </section>
+
+  <section class="section reveal" id="how">
+    <p class="kicker">HOW IT WORKS</p>
+    <h2>From task to running system.</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><div><b>MAP</b><p>You describe the task you want gone. I send back the plan, the fixed price, and the done-definition within 24-48 hours.</p></div></li>
+      <li><span class="num">2</span><div><b>BUILD</b><p>Error handling, logging, and idempotency built in. A replayed webhook never double-charges or double-tags.</p></div></li>
+      <li><span class="num">3</span><div><b>HANDOVER</b><p>Source code, plain-English docs, and a video walkthrough of the running system.</p></div></li>
+      <li><span class="num">4</span><div><b>CARE</b><p>Support days are included. If it breaks after handover: a fix, not a ticket queue.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="section reveal" id="faq">
+    <p class="kicker">FAQ</p>
+    <h2>Asked often.</h2>
+    <details>
+      <summary>Do I need to know anything technical?</summary>
+      <p>No. I need access to the tools you want connected (email, CRM, sheets, WhatsApp) and a description of the task. You get docs and a walkthrough so your team can live with it.</p>
+    </details>
+    <details>
+      <summary>What if the agent makes a mistake?</summary>
+      <p>Guardrails on (stays on topic, refuses to guess, flags low confidence), every action logged, human handoff for anything sensitive. You approve the risky steps.</p>
+    </details>
+    <details>
+      <summary>How does payment work?</summary>
+      <p>50% to start, 50% on delivery, via Stripe or PayPal. Included support days are part of the package — see the terms.</p>
+    </details>
+    <details>
+      <summary>Where are you based?</summary>
+      <p>Israel (UTC+2), working language English, full overlap with the European workday and US Eastern afternoons.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-links">
+      <a href="https://github.com/origit892-stack/Projects" target="_blank" rel="noopener">GitHub</a><span class="dot">·</span>
+      <a href="https://openshelf.1st4offers.com" target="_blank" rel="noopener">Store</a><span class="dot">·</span>
+      <a href="https://youtube.com/@TheAgentOperator" target="_blank" rel="noopener"><!-- REPLACE: youtube channel handle -->YouTube</a><span class="dot">·</span>
+      <a href="terms.html">Terms</a><span class="dot">·</span>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <p class="copy">© 2026 Ori Ganzburg, operating as The Agent Operator, Tel Aviv, Israel.</p>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
