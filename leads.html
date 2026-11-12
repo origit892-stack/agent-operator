@@ -47,6 +47,80 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261112-01</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-12 09:06 IST</span>
+  </div>
+  <h3>r/zapier: home-cleaning ops — WhatsApp→CRM via Zapier: one booking = 25 tiny notes, eats tasks; wants wait-and-group note</h3>
+  <a class="src" href="https://www.reddit.com/r/zapier/comments/1xtsdfe/spent_the_weekend_getting_whatsapp_chats_into_our/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">One booking turning into 25 tiny notes and eating your Zapier tasks — that&#x27;s what you&#x27;re describing: every webhook message is one action, one task. The fix has two halves: a quiet window, and extraction.
+
+I build and operate this class of pipeline in production: a small webhook service collects the chat, waits ~1 hour of silence, then an LLM writes exactly what your boss wants — quote requested?, date, booked? — as ONE structured CRM note. Runs on your infra, flat cost, no per-message tax, replayed webhooks never double-write.
+
+Proof you can check today:
+- 24/7 multi-agent ops desk — 71 specialized agents, checkpointed state; runs verified daily.
+- Unattended publishing pipeline running twice daily with a dedupe ledger and failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which CRM are you writing the notes to — HubSpot, GoHighLevel, or something else? That decides the write path for the grouped note.</p></details><p class="notes">Reply in the r/zapier thread. Posted 2026-11-11 20:15 UTC (flavia-f, ops at a small home-cleaning company, 6 cleaners; ~30 WhatsApp chats/week; Zapier catch-hook writes every message as its own CRM note; overage task costs; boss wants &#x27;asked for a quote / what date / booked&#x27; in the CRM; explicitly asks how to wait-an-hour-then-group &#x27;without it getting fragile&#x27; and welcomes &#x27;use a different tool&#x27;). Fit B: exact pain class (quiet-window + LLM extraction into one structured note) — One Task $300 / AI Employee $900 class; 6 comments already, thread open. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261112-02</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-12 09:06 IST</span>
+  </div>
+  <h3>r/automation [HIRING]: Freelance AI Workflow Engineer (SaaS marketing agency, Delhi, India) — $15 per completed workflow</h3>
+  <a class="src" href="https://www.reddit.com/r/automation/comments/1xtfpf1/hiring_freelance_ai_workflow_engineer_developer/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Custom AI workflows in Python/JS with LLM APIs and n8n, tested and delivered project-based — that&#x27;s the scope I work in, day to day. One number doesn&#x27;t fit: $15 per completed workflow is below my floor. My rate is $300 fixed per completed, tested, documented workflow — you get a working deliverable plus handover notes. If you batch several workflows at once, I&#x27;ll quote a package price.
+
+Proof you can check today:
+- 24/7 multi-agent ops desk — 71 specialized agents with checkpointed state; scheduled runs verified daily.
+- Unattended publishing pipeline with a dedupe ledger and failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how many workflows a week does the agency typically ship — a couple, or 20+? That decides whether a batch price is worth quoting.</p></details><p class="notes">Reply in the r/automation thread (post also says DMs open). Posted 2026-11-11 11:46 UTC (Designer-Mirror-8823; SaaS marketing agency, Delhi, India; wants Python/JS + LLM APIs + n8n/Make/Zapier, project-based, volume depends on incoming projects). Fit C: scope match is exact BUT compensation is $15 per completed workflow — far below the $300 floor; draft states the floor + offers a batch package price. Registered for the user&#x27;s decision — likely reject. SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261112-03</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-12 09:06 IST</span>
+  </div>
+  <h3>n8n community: two weekly local-events newsletters (scraped websites + Instagram) — move from ChatGPT to n8n server?</h3>
+  <a class="src" href="https://community.n8n.io/t/328205/create-newsletters-with-n8n" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Two weekly newsletters, and you don&#x27;t want to start paying the ChatGPT API for what your subscription already does. Short answer: pennies either way (a few thousand tokens per run); for zero cost, Gemini&#x27;s free tier or DeepSeek generate the HTML just as well.
+
+If I moved it: start with the website-scraping one. Cron trigger → fetch the page as text → model extracts the events and writes the HTML → push it to your email tool as a DRAFT via its API, so you still review before send. Keep the Instagram one on ChatGPT until it runs clean.
+
+I operate this class of unattended pipeline in production (twice daily, with failure alerts); I can wire the first one for you, ~$300 fixed.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which email software are you pasting into — Mailchimp, Brevo, or something else? That decides the API push node.</p></details><p class="notes">Reply in the n8n community thread (open, replies enabled). Posted 2026-11-11 17:53 UTC (JackBauer; two weekly newsletters — local events from local-website scraping + Instagram via ScrapeCreators; ChatGPT makes the HTML, he pastes it into his email software; has his own n8n server; cost-sensitive about ChatGPT API). Fit C: advice question, small scope (~$300 One Task if he wants it built); 7 helpful replies already in the thread — reply adds value (draft gives the concrete n8n design + free-tier model option) with a low-key build offer. SEND CHANNEL: n8n community thread (user&#x27;s own account).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261112-04</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-12 09:06 IST</span>
+  </div>
+  <h3>n8n [HIRING] (thread CLOSED): Founding n8n Builders for US small-business work — AutoMatch marketplace</h3>
+  <a class="src" href="https://community.n8n.io/t/328131/hiring-founding-n8n-builders-for-us-small-business-client-work-freelance-remote" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">I&#x27;d like to join as a builder. I design and operate AI automations for small businesses in production — missed-call handling, lead follow-up, appointment booking — n8n-based, with error workflows and failure alerts, and I explain every system to non-technical owners in plain language.
+
+Proof you can check today:
+- 24/7 multi-agent ops desk — 71 specialized agents, checkpointed state; runs verified daily.
+- 124-product store operated end-to-end via its official API — GET before write, read-back after every change.
+https://origit892-stack.github.io/agent-operator/
+
+One question before I commit: what percentage does the platform hold on each completed project, and when does a builder&#x27;s payout release after client approval?</p></details><p class="notes">⚠ THREAD CLOSED (created 2026-11-11 14:47 UTC, Aidan, founder of AutoMatch — marketplace matching US small businesses with AI/automation builders; work class = missed-call handling, lead follow-up, appointment booking; remote, US time zones). Fit C: work class is an exact match BUT (1) thread closed — no reply channel; OP&#x27;s channel = builder application via useautomatch.com (draft doubles as the application text); (2) payments run through the platform — fee cut must be verified against actual terms BEFORE committing (zero-cost rule; the draft&#x27;s closing question asks exactly this); (3) OP states &#x27;project volume isn&#x27;t guaranteed&#x27;. User action: decide whether to apply on their own account after fee check.</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261111-01</span>
     <span class="fit fit-c">FIT C</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
