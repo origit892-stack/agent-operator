@@ -47,6 +47,85 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261114-01</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-14 09:05 IST</span>
+  </div>
+  <h3>n8n runtime-based HVAC maintenance reminders — per-customer runtime totals from smart thermostats (Ecobee/Honeywell), 300-400h triggers, reset via technician webhook, PSEG rebate nudges</h3>
+  <a class="src" href="https://community.n8n.io/t/328494/hvac-company-question-high-efficiency-rebates-n8n-workflow-to-remind-pseg-customers-about-upgrades-and-service" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Runtime-based reminders is the right design — your three questions have clean answers:
+
+1. Per-customer total: a database table, one row per customer (counter + last reset). Static data can&#x27;t survive overlapping runs, and a webhook workflow elsewhere can&#x27;t touch it. On n8n Cloud: Data Tables.
+2. Reset: the scheduling-form webhook -&gt; one transaction: zero the counter, log the visit, timestamp it. Idempotent on job ID so a resubmitted form can&#x27;t double-reset.
+3. Token refresh: keep Ecobee/Honeywell credentials in n8n&#x27;s credential store; a small scheduled workflow refreshes ahead of expiry.
+
+I build and operate this class of n8n system in production — 24/7 multi-agent ops desk (71 agents, checkpointed, verified daily), unattended pipeline with failure alerts. Happy to build this one; fixed quote after a quick mapping.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which brand do most customers actually run — Ecobee or Honeywell? That decides which runtime API I test first.</p></details><p class="notes">Reply in the n8n community thread (OPEN — closed:False verified 2026-11-14). Posted 2026-11-13 12:27 UTC (EmilyMillerHVAC; HVAC Pro Solutions, New York/Long Island; n8n Cloud). Wants an n8n workflow that tracks real heating/cooling runtime from a smart-thermostat API (Ecobee or Honeywell), stores a running total per customer (Sheets or Postgres), sends email/SMS when 300-400h pass, resets the counter when a technician logs the job via a scheduling-form webhook, and points Long Island customers to PSEG heat-pump rebates. Asks 3 concrete design questions: (1) per-customer running total — DB node vs workflow static data; (2) reset on technician webhook; (3) thermostat API token refresh inside n8n. Fit B: exact n8n workflow build — One Task $300 / AI Employee $900 class. 3 community answers already; draft answers all 3 questions concretely + restrained build offer. SEND CHANNEL: n8n community thread (user&#x27;s own account).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261114-02</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-14 09:05 IST</span>
+  </div>
+  <h3>r/n8n: family &#x27;tech person&#x27; asked to pick a voice AI for sister&#x27;s home-services company drowning in phone calls</h3>
+  <a class="src" href="https://www.reddit.com/r/n8n/comments/1xvd98e/how_do_you_even_pick_a_voice_ai_for_a_small/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your sister&#x27;s home-services company drowning in phone calls — what actually matters when picking a voice AI:
+
+1. Answer rate — does it pick up on the 2nd-3rd ring after hours? Test on real missed calls, not a demo.
+2. The 2-3 outcomes a call must achieve: book? callback? emergency dispatch? The system is built around those.
+3. Human escalation — upset caller: live transfer, or a flagged text to her phone?
+4. Cost — per-minute; a busy line burns hundreds of minutes a month.
+
+I operate this class of unattended agent system in production: a 24/7 multi-agent ops desk (verified daily) and a publishing pipeline with failure alerts. If she wants it set up: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how many calls a day is she missing, and what do callers need most on the line — booking, pricing, or a callback?</p></details><p class="notes">Reply in the r/n8n thread. Posted 2026-11-13 17:00 UTC (OP = family tech person with no background; sister runs a small home-services company drowning in phone calls; everything he finds is &#x27;super technical or just sales copy&#x27;; asks what actually matters when picking, starting fresh). Fit C: advice-seeking, no explicit hiring — but a real business pain (home-services missed calls = lost bookings) and an imminent decision. Voice front is new to the proof bank — draft claims &#x27;this class of unattended agent system&#x27; (honest: we operate 24/7 multi-agent systems in production), no invented voice-client claims. If built: One Task $300 / AI Employee $900 class (voice front + booking handoff). SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261114-03</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-14 09:05 IST</span>
+  </div>
+  <h3>r/automation: insurer&#x27;s test-automation lead — which AI testing tools give auditable step-by-step run reports (screenshots + failure analysis) that internal audit accepts</h3>
+  <a class="src" href="https://www.reddit.com/r/automation/comments/1xvibii/which_ai_testing_tools_give_auditable_step_by/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You&#x27;ve hit the core issue: auditors don&#x27;t accept the agent&#x27;s explanation — they accept a deterministic record. My rule in production: every step logged before the model&#x27;s commentary — exact input, tool call, expected vs actual, screenshot hash, timestamp; the LLM&#x27;s &#x27;reasoning&#x27; is an attachment, never the evidence.
+
+The pattern that passes audit: an append-only run log (one signed/timestamped line per step), screenshots keyed to step IDs, PASS/FAIL from assertions, not the model. AskUI&#x27;s report is closest — what to demand from any vendor is the deterministic core under it.
+
+I run this in production: a 24/7 multi-agent ops desk (71 agents, checkpointed state, execution logs verified daily) plus an unattended pipeline with failure alerts. I can build that evidence layer for your agent runs.
+https://origit892-stack.github.io/agent-operator/
+
+One question: does your audit side require an immutable run log (append-only/signed), or is a timestamped archive with access control enough?</p></details><p class="notes">Reply in the r/automation thread. Posted 2026-11-13 20:10 UTC (OP runs test &amp; monitoring automation for internal systems at an INSURER; internal audit wants, per run: which steps executed, what the screen looked like, expected result, why a step passed; already knows Playwright+Allure, Selenium, Tosca/Ranorex (licensing/scripting pain they&#x27;re escaping), Momentic (browser-only), AskUI (report close — per-step screenshot + agent reasoning + failure analysis + loop watchdog) but the agent&#x27;s self-explanation worries him: an auditor gets &#x27;a model&#x27;s account rather than a deterministic log&#x27;; asks what regulated shops&#x27; auditors accepted as evidence for AI-driven UI tests, and whether they kept a scripted suite running alongside). Fit C: peer-experience question, regulated client (insurance) with budget class; our angle = the deterministic evidence layer under agent runs (append-only signed run log, step-keyed screenshots, assertion-based PASS/FAIL) — same pattern as our checkpointed multi-agent ops with execution logs. If built: One Task $300 / AI Employee $900 class. SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261114-04</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-14 09:05 IST</span>
+  </div>
+  <h3>r/AI_Agents: planning a team of 7 AI agents to automate the entire software QA lifecycle (BRD/SDD analysis, test generation, execution, automation) — looking for suggestions</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1xvhhm6/i_want_to_build_a_team_of_7_ai_agents_to_automate/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your 7-agent QA split (BRD -&gt; SDD -&gt; strategy -&gt; execution -&gt; automation) is solid. From running similar systems in production:
+
+1. Give every agent a contract: fixed input/output schemas + a done-definition. Multi-agent systems die at the seams, not the models — prose between agents.
+2. One shared artifact store, not message passing: each agent reads/writes structured artifacts (traceability table, test-case JSON, execution reports); the orchestrator only routes.
+3. Traceability is what clients pay for: requirement ID -&gt; test case ID -&gt; execution result, in a table from agent 3 onward.
+
+I operate this class of system in production: a 24/7 multi-agent ops desk — 71 specialized agents, checkpointed state, runs verified daily. Happy to review the spec and send back plan + fixed price.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what&#x27;s the source of truth for your BRDs/SDDs — Confluence, SharePoint, or PDF drops? That decides the intake design.</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-13 19:38 UTC (OP planning to build a 7-agent multi-agent system for the complete software QA lifecycle: Agent 1 BRD analysis (requirements, gaps, open questions, test-data needs), Agent 2 SDD analysis (tech gaps/risks, test scenarios), Agent 3 test strategy + case generation (smoke/E2E/business-oriented, requirement traceability), Agent 4 test execution (PASS/FAIL/ON-HOLD, screenshots/logs, defect reports), Agent 5 test-automation suitability + 2 more agents; &#x27;Looking for Suggestions!&#x27;). Fit C: architecture advice on exactly the class of system we operate daily (multi-agent fleet with contracts + shared artifacts + verified runs); if built: Agent System $2,000+ class. SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261113-01</span>
     <span class="fit fit-b">FIT B</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
