@@ -47,6 +47,77 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261116-01</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-16 09:05 IST</span>
+  </div>
+  <h3>r/smallbusiness: online tutoring company — parents message evenings/weekends about the software; site chatbot helps a bit but reschedule requests go unanswered; can&#x27;t justify a support hire at low unpredictable volume</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1xx93xv/question_about_support_queries/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Parents messaging evenings and weekends — most questions quick, but they still need answering, and reschedules are exactly what your site chatbot misses. When volume is low and unpredictable, the answer is rarely a hire: one message endpoint (WhatsApp, where they already write) that answers your software FAQ from your help docs, plus a &#x27;move lesson&#x27; flow — parent picks a new slot, the agent checks it against the calendar, updates the booking, both sides get a confirmation. Low-confidence messages land in one morning inbox for you. You never cover a shift again.
+
+I build and operate this class of unattended system in production — a 24/7 multi-agent ops desk (71 agents, checkpointed state, runs verified daily) and an unattended pipeline with failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what runs your lesson scheduling today — a calendar, a SaaS, or a spreadsheet? That decides whether reschedules update automatically or come back for your confirmation.</p></details><p class="notes">Reply in the r/smallbusiness thread. Posted 2026-11-15 22:46 UTC. Online tutoring company: in the evenings and weekends parents message with quick questions about the software; a website AI chatbot &#x27;has helped a bit&#x27; but parents prefer messaging directly, &#x27;especially to ask us to move calls or lessons&#x27;; hiring support is hard to justify (low, unpredictable volume, random evening/weekend timing). OP asks: how have others handled low-volume unpredictable after-hours support; WhatsApp auto-reply pointing to chatbot/help page — did parents actually use it; are there tools that... (post trails off). Fit B: after-hours support + reschedule agent = core kit class (missed-call/message handling, lead follow-up) — AI Employee $900 class; they already run a chatbot, so incremental fit is proven. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261116-02</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-16 09:05 IST</span>
+  </div>
+  <h3>r/LLMDevs: perfume-comparison app — can&#x27;t reliably extract BHD prices from local Bahrain store sites; tried 7 scraping stacks + LLM fallback, still misses</h3>
+  <a class="src" href="https://www.reddit.com/r/LLMDevs/comments/1xx1uxv/cant_reliably_get_local_store_prices_in_bahrain/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Prices are where it falls apart — and you&#x27;ve already tried the generic pipeline the hard way: JSON-LD/OpenGraph/microdata, Shopify/Woo JSON, LLM fallback, plus seven scraping stacks. The pattern that actually holds when the store set is small (and Bahrain&#x27;s is): stop detecting, start specializing. One hand-written extractor per store — twenty stores = twenty tiny functions that beat a hundred generic detectors — each with a price-change canary that alerts you the day a store redesigns. For pasted links or bottle photos: match the input against your own catalog first, then run that SKU&#x27;s extractors — no open-web search at runtime. LLM stays the last resort, with a strict schema and a confidence threshold; every miss gets logged as the next canary&#x27;s training data.
+
+I operate this class of unattended extraction pipeline in production — publishing twice daily with a dedupe ledger and failure alerts. Happy to build the store-adapter layer for you.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how many distinct store sites are in the corpus — under 20, or hundreds? That decides per-store adapters vs a generic detector.</p></details><p class="notes">Reply in the r/LLMDevs thread. Posted 2026-11-15 17:50 UTC (u/Leading_Layer_546; small team building a perfume comparison app — price, reviews, specs, pros/cons; BHD prices on local Bahrain store sites; current flow = Python search → fetch → JSON-LD/OpenGraph/microdata + Shopify/Woo JSON → LLM fallback, ~25s per comparison; tried curl_cffi Chrome impersonation (best), Playwright, patchright, crawl4ai, Firecrawl, Scrape.do, Zyte, Bright Data, Claude web search — &#x27;still comes back empty way too often&#x27;; pasted product links or bottle photos &#x27;often just die. Timeout, or nothing comes back&#x27;). Fit C: dev team that can DIY (they&#x27;ve clearly built the generic pipeline) but is stuck on the exact failure mode; the fix = per-store extractors + canaries + catalog-first matching — One Task $300 / AI Employee $900 class if they outsource the adapter layer. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261116-03</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-16 09:05 IST</span>
+  </div>
+  <h3>r/smallbusiness: traveling makeup artist, first business — missed a Zoom with a potential client; tracking clients/calls/payments across planner + notebook + Google Docs</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1xxf4lv/tips_on_keeping_all_info_organized/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You missed a Zoom call with a potential client because the planner + notebook + Google Docs mix can&#x27;t keep up — the fix isn&#x27;t more discipline, it&#x27;s one source of truth. One sheet (or Notion) with three small tables: clients (who, service, how they want to be reached), calls (date, link, what they wanted), payments (paid vs owed). Then two automations: a reminder fires before every scheduled call, and a weekly digest tells you who owes what and who hasn&#x27;t been followed up with. The planner stays as backup; the sheet is the system.
+
+I build and operate this class of unattended pipeline in production — a 24/7 multi-agent ops desk (71 agents, checkpointed state, verified daily) and a publishing pipeline with failure alerts. I can set this up for you end-to-end: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how do clients pay you today — Zelle, PayPal, card, or a mix? That decides which payment ledger I build first.</p></details><p class="notes">Reply in the r/smallbusiness thread. Posted 2026-11-16 03:34 UTC. Traveling makeup artist, small business &#x27;getting a lot of traction&#x27; and moving too fast; today is the first time she missed a Zoom call with a potential client. Needs: track potential clients, contact preference (email vs phone), dates + details of calls (service, how many people, where), who paid how much / who still owes. Current stack: physical planner, notebook, Google Docs, 1-800 Accountant, LegalZoom. Fit C: advice-seeking, early stage (close odds modest) but a real posted pain with a clean automation shape (single source of truth + call reminders + payment ledger) — One Task $300 class if built. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261116-04</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-16 09:05 IST</span>
+  </div>
+  <h3>r/n8n: experimenting with Meta Muse, wants to pair it with a phone agent that handles calls (not just chat) — asks what&#x27;s actually working</h3>
+  <a class="src" href="https://www.reddit.com/r/n8n/comments/1xwzyma/what_are_the_most_useful_phone_agents_to_use_with/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Pairing Muse with something that actually takes calls — what matters when picking the phone-agent layer:
+
+1. Pickup — does it answer on the 2nd-3rd ring, or bounce to voicemail mid-test?
+2. Barge-in — can a caller interrupt, or does the agent monologue? On real calls this is make-or-break.
+3. Handoff — human needed: live transfer, or a flagged message with full context?
+4. Per-minute cost — a busy line burns hundreds of minutes a month.
+
+Purpose-built voice platforms win on 1-3; a general AI agent only holds up on 4.
+
+I operate this class of unattended agent system in production (24/7 multi-agent ops desk, verified daily). If you want the whole thing wired — Muse + voice front + handoff: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what should a successful call end in — a booking, a callback request, or a message to a human? That decides which layer is worth testing first.</p></details><p class="notes">Reply in the r/n8n thread. Posted 2026-11-15 16:36 UTC (u/Ipushedhumptydumptyy; &#x27;been playing around with Meta&#x27;s Muse for a few days and want to pair it with something that can actually handle calls, not just chat&#x27;; setup &#x27;pretty basic&#x27;; asks whether a purpose-built voice layer is needed or a general AI agent holds up; &#x27;Anyone running Muse with a phone agent already? Curious what&#x27;s actually working.&#x27;). Fit C: tool-selection advice, no explicit hiring — but actively wiring a voice front (intent to build); consistent with L-20261114-02 (voice-AI pick, C). Draft gives the 4 selection criteria + restrained build offer (if wired: AI Employee $900 class). SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261115-01</span>
     <span class="fit fit-a">FIT A</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
