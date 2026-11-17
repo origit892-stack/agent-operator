@@ -47,6 +47,204 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261117-01</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/AI_Agents: supplier ordering — 7 suppliers, 500+ SKUs, days-of-supply floor → full truckloads → order forms; &quot;would an AI agent make quick work of this?&quot;</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1xy86e3/supplier_ordering/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You want Excel to take over ordering from your 7 suppliers — 500+ SKUs, days-of-supply floors, full semi truckloads, order forms. Honest answer: an AI agent is overkill here — a deterministic pipeline does it faster and never drifts.
+
+The build: your inventory report in → rules engine computes per-SKU reorder quantities from each supplier&#x27;s lead time and your days-of-supply floor → bin-packs into full truckloads per supplier → writes the order forms in your exact layout → flags the near-empty trucks for a human look.
+
+Proof you can check today:
+- 24/7 multi-agent ops desk — 71 specialized agents, checkpointed state, runs verified daily.
+- Unattended pipeline publishing twice daily with a dedupe ledger and failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how does the inventory report arrive today — an export from your system, or a sheet someone maintains? That decides where the pull starts.</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-17 02:04 UTC. OP wants Excel to take over ordering from 7 suppliers, 500+ SKUs, per-supplier lead times, don&#x27;t let product drop below a certain days of supply, break products into full semi truckloads, then key the truckloads into separate order forms; &quot;I&#x27;m new to all this&quot;. Fit B: real recurring-ops pain with a clean deterministic pipeline shape (inventory report → reorder calc from lead time + days-of-supply floor → bin-pack truckloads → order forms) — One Task $300 / AI Employee $900 class; draft honestly tells them an AI agent is overkill (deterministic script). Commenters already steered them to &quot;database + Python scripts&quot;; a vendor DM&#x27;d them. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-02</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/smallbusiness: 15-person ecommerce — order checks, invoice matching, ticket follow-ups eat the week; tried Codex + others, syncs break; maintenance + cost worries</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1xyahsx/running_a_business_is_starting_to_feel_like_a/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Orders, supplier payments, invoices — &quot;there&#x27;s always something to check, match or follow up on,&quot; and the tools you&#x27;ve tried stop halfway and still need manual checking. The fix is to stop automating three things at once:
+
+1. One flow first: invoice matching is usually the cleanest win — pull the supplier invoice, match it against order and receipt, flag only the mismatches. Your team stops checking everything and only checks what doesn&#x27;t match.
+2. Maintenance is the product: every system I ship runs unattended in my own 24/7 production first — error alerts, checkpointed recovery, written runbook — and the ongoing care is a small fixed monthly plan, not an in-house tech team.
+3. Cost: it runs on your own API keys, pay-per-use — for this volume, low dollars per day, no per-seat subscription.
+
+Proof: a 24/7 multi-agent ops desk (71 agents, checkpointed, verified daily); an unattended pipeline with failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which of the three — order checks, invoice matching, or ticket follow-ups — eats the most hours per week? I&#x27;d build that one first.</p></details><p class="notes">Reply in the r/smallbusiness thread. Posted 2026-11-17 03:58 UTC. Small ecommerce, ~15 employees; admin work (orders, supplier payments, invoices) eats everyone&#x27;s time; tried Codex and &quot;anvita mate&quot; — data doesn&#x27;t sync, workflows stop halfway, still checks results manually; explicit asks: &quot;AI to handle order checks, invoice matching and customer ticket follow-ups&quot; + two blocking worries: who maintains it without an in-house tech team, and subscription/API cost. Fit B: exact kit class with budget and a stated maintenance question (care plan) — AI Employee $900 class + care plan. Top comment already advises &quot;hire a company to integrate&quot; — the draft answers all three concerns. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-03</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/smallbusiness: solo mobile mechanic — separate advertising phone line + after-hours &quot;robo secretary&quot; that screens calls and gathers customer info</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1xy5vin/small_business_phone_line/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">A separate advertising line plus &quot;a robo secretary to screen calls and gather customer information&quot; — for a one-man mobile mechanic that&#x27;s the right shape, and the robo part is what stops after-hours customers going to whoever answers.
+
+The phone: keep it simple — one VoIP business number on your existing phone. Skip the dumb phone: customers will want to text a photo of the leak or the engine.
+
+The robo: after hours (or while you&#x27;re under the hood), an AI receptionist answers on the 2nd–3rd ring, confirms the job — vehicle, what&#x27;s wrong, address, urgency — books a slot or a morning callback, and texts you the summary. Anything urgent or unclear goes straight to your phone.
+
+Proof you can check today: a 24/7 multi-agent ops desk (71 agents, checkpointed state, runs verified daily); an unattended pipeline with failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: when a customer calls after hours, what&#x27;s the ideal outcome — a booked service slot, a morning callback, or just the details captured? That decides how much the booking flow has to do.</p></details><p class="notes">Reply in the r/smallbusiness thread. Posted 2026-11-17 00:16 UTC. Solo mobile mechanic, ~2 years in, word-of-mouth so far, scaling up with advertising; wants a business-only number (no weird calls at odd hours) + &quot;a robo secretary to screen calls and gather customer information&quot;; considering dumb phone / AT&amp;T add-on line / Google Voice; &quot;one man show, just trying to stay organized and not miss out on potential customers.&quot; Fit B: missed-call handling + after-hours info gathering = core kit (One Task $300 / AI Employee $900 class; voice front + booking handoff, client-side infra per architecture rule). Comments are generic phone-plan advice — none cover the robo part. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-04</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/automation: recruiting sourcing agent — needs structured people data (title, past employers + dates, location, work email) at thousands of lookups/day; Exa too weak</h3>
+  <a class="src" href="https://www.reddit.com/r/automation/comments/1xximwz/whats_a_good_exa_alternative_for_people_data/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Filtering &quot;past company with dates&quot; by stuffing it into a semantic query string is the failure mode you&#x27;ve hit — Exa&#x27;s work-history fields are sparse, so the search returns current Stripe people and people who merely wrote about Stripe. At a few thousand lookups a day, don&#x27;t let the search layer do structured filtering:
+
+The build: a fixed source stack, each with a hand-written extractor into one schema — current title, past companies with dates, location, work email. Your agent then filters the schema in code (deterministic, cheap, testable); the LLM only touches the ambiguous rows. Rate-limit per source, cache by person, and log which source provided each field — weak sources get swapped out on evidence, not guesswork.
+
+Proof: an unattended extraction pipeline running twice daily with a dedupe ledger and failure alerts; a 24/7 multi-agent ops desk (71 agents, checkpointed state).
+https://origit892-stack.github.io/agent-operator/
+
+One question: is the few-thousand-a-day a one-time list or a rolling pool — and which source does your team currently hand-verify against? That decides the schema&#x27;s ground truth.</p></details><p class="notes">Reply in the r/automation thread. Posted 2026-11-16 06:52 UTC (just inside the ~24h window). Building a sourcing agent for a recruiting team; Exa is the people layer but semantic-query filters are unreliable (&quot;senior backend engineers who used to work at Stripe&quot; returns current Stripe people + people who wrote about Stripe), work-history fields often empty, contact info weak → manual list review every run. Needs: structured filtering on current title, past company with dates, location, then work-email pull; &quot;a few thousand lookups a day, so it has to survive an agent hammering it.&quot; Fit B: volume production lookup/extraction pipeline (deterministic extractors + schema + code-side filtering) — AI Employee $900 / Agent System class; same family as L-20261110-03 (lookup agent) but at scale. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-05</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/AI_Agents: production voice agent — 15 metrics all green, customers still complain, hundreds of calls/day; how to find failure modes no metric covers</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1xydhou/our_voice_agent_passes_every_metric_we_wrote_and/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">All-green metrics with live complaints means you&#x27;re measuring what you wrote, not what confuses the customer. For hundreds of calls a day, the layer that scales past listening one-by-one:
+
+1. Sample both directions: a few random &quot;green&quot; calls plus every call tied to a complaint, daily.
+2. Transcribe, then run an open-ended critic — not a rubric: &quot;what in this call could have frustrated the caller?&quot;
+3. Cluster the free-text notes nightly; a recurring new phrase becomes a metric candidate — you discover failure modes from the language of complaints instead of guessing them.
+4. Weekly: the top-5 confusion patterns with timestamps into the recordings, so your team listens to five clips, not five hundred calls.
+
+I run this class of audit layer in production (checkpointed multi-agent desk, execution logs verified daily). Happy to wire it against your call data — plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: do your recordings and your complaint tickets already share a call ID, or is matching them manual today? That decides how much of step 1 is plumbing.</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-17 06:44 UTC (minutes before the run). Production voice agent, ~15 metrics (task completion, tool-call success, latency, LLM judges) all green, but support keeps forwarding complaints; only finds real issues by listening call-by-call (e.g., agent repeating after long pause, confusing appointment-time offers); hundreds of calls/day; asks &quot;How do you find failure modes you haven&#x27;t written a metric for yet? Anyone clustering failed calls or auditing batches?&quot; Fit C: peer-experience question from a team running voice at scale (budget class) — the angle is the call-audit layer (two-direction sampling + open-ended critic + nightly clustering + weekly top-5 with timestamps) — One Task $300 / AI Employee $900 class if built. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-06</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/AI_Agents: voice customer queries → end-of-day top-10 common points summary (&quot;can we create a customer based ai system&quot;)</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1xy6vxs/solve_customer_problem/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Customers send their problems by voice, and at end of day you get the top 10 common points — yes, buildable, and as your thread&#x27;s comments say: a pipeline, not a full agent.
+
+The shape: each call → transcription → one short structured note per call (topic tag + two-line summary) → a nightly job clusters the tags and counts distinct customers per topic, so one frustrated caller reporting the same issue five times counts once → your top-10 sheet with a redacted example quote per row.
+
+The trap: if the model &quot;summarizes the day&quot; directly, it echoes the loudest complaints. Tag-then-count is what makes the top-10 honest.
+
+Proof: an unattended pipeline running twice daily with a dedupe ledger and failure alerts; a 24/7 multi-agent ops desk (71 agents, checkpointed state).
+https://origit892-stack.github.io/agent-operator/
+
+One question: how do the calls arrive today — a phone line, WhatsApp voice notes, or a ticketing system? That decides the ingestion step.</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-17 01:03 UTC. OP (non-native English, early stage) wants a customer-based AI system: customers send queries by speaking, at end of day it summarizes the 10 common points and the team works on them; &quot;we just follow the old process where we get the money but not what we want to update over the period of time.&quot; Fit C: idea-asking, no budget signal, but a clean pipeline shape (ingest voice → transcribe → per-call structured note → nightly tag-cluster + distinct-customer count → top-10 sheet with redacted examples); comments confirm feasibility (transcription + nightly clustering). If built: One Task $300 class. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-07</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/n8n (cross-posted r/nocode): building voice agents — how to handle call-drop / bad-network scenarios, dry-running them</h3>
+  <a class="src" href="https://www.reddit.com/r/n8n/comments/1xxrp0c/if_you_are_building_automation_with_voice_agents/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">For call drops and bad-network runs, you can&#x27;t dry-run every failure — but you can make each class of drop do the right thing automatically:
+
+1. Drop before the caller confirms → the downstream action must not fire (commit only after confirmation).
+2. Drop after the action but before they hear the confirmation → store the result keyed to the call; on reconnect, look it up and tell them what happened instead of re-running.
+3. The silent drop — provider sends no end event at all (this is the one that bites): a watchdog timer per call; no status in the window = treat as dropped, same recovery path.
+
+Plus a small nightly dry-run of the two real disconnect scenarios against a test number, so regressions show up before customers do.
+
+I build and operate this class of unattended agent system in production (24/7 multi-agent desk, verified daily). If you want it wired into your flow: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which voice provider are you on — does it webhook mid-call drops, or only end-of-call? That decides whether the watchdog is the safety net or the primary detector.</p></details><p class="notes">Reply ONCE in the r/n8n thread (primary). Same OP cross-posted to r/nocode: https://www.reddit.com/r/nocode/comments/1xxrnr4/if_you_are_building_automation_with_voice_agents/ (posted 2026-11-16 15:05/15:06 UTC). OP building n8n voice-agent automation asks how to handle call-drop / bad-network scenarios and whether they manually dry-run those cases. Fit C: peer question from someone actively building (intent to build); draft gives the 3-class drop matrix (pre-confirm drop = no action; post-action pre-confirm drop = stored result + reconnect lookup; silent drop = watchdog timer) + nightly dry-run. Comments already mention watchdog timers (one commenter). If wired: One Task $300 / AI Employee $900 class. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-08</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/automation: cross-portal RPA without APIs (login-gated partner portals) — Viktor vs n8n+Claude+Playwright, token-vs-speed trade-off</h3>
+  <a class="src" href="https://www.reddit.com/r/automation/comments/1xxlfng/how_do_you_make_rpa_faster_when_there_is_no_api/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your token-vs-speed trade-off has a standard resolution: stop paying model tokens for data that is already structured.
+
+The pattern: per partner portal, one hand-written extractor (deterministic fields — the layout is stable per portal even when the values aren&#x27;t), Playwright only for the login-gated navigation, and the LLM only the rows the extractor can&#x27;t parse with high confidence. Batch: one model call per page, not per record. And split extraction from submission at the page level, not the record level — your split idea is right, it just needs the right seam.
+
+Result: Viktor-level speed with N8n-level visibility, and a logged decision trail per record.
+
+Proof: an unattended extraction pipeline running twice daily with a dedupe ledger and failure alerts; a 24/7 multi-agent ops desk (71 agents, checkpointed state).
+https://origit892-stack.github.io/agent-operator/
+
+One question: how many distinct partner portals are in the loop — under 5, or 10+? That decides whether per-portal extractors pay off immediately or you need a generic-parser-first approach.</p></details><p class="notes">Reply in the r/automation thread. Posted 2026-11-16 09:50 UTC. Collects data from multiple login-gated partner portals (no APIs) into a system that also has no API; currently uses Viktor (fast, limited transparency); recreating in n8n + Claude + Playwright is much slower per entry; tried splitting extraction from submission (drives up token usage); asks how to optimize RPA performance, hybrid approaches, reducing time without losing reliability. Fit C: technical peer question from someone running production automation with budget — the standard answer (per-portal deterministic extractors, Playwright only for gated nav, LLM only for low-confidence rows, per-page batching, split at page not record) matches exactly the store-adapter pattern we operate. If built: One Task $300 / AI Employee $900 class. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-09</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/AI_Agents: &quot;10 agents running, half waiting on me&quot; — managing agent escalations is a full-time job</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1xy1quh/im_the_bottleneck_of_my_own_company/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">&quot;10 agents and half are waiting on me&quot; — the problem isn&#x27;t the count, it&#x27;s that all 10 escalate to you the same way, no matter what&#x27;s at stake. What I run in production (a 71-agent desk, higher stakes):
+
+1. Split by reversibility. Anything an agent can undo, or that costs nothing if wrong, proceeds and just logs — only irreversible or customer-facing actions hit your queue.
+2. One inbox, not 10 threads: each escalation is one structured line — decision needed, what&#x27;s pending, cost of waiting — so triage takes minutes.
+3. Timeouts: nothing waits forever. An unanswered approval auto-escalates (or auto-approves, for the low-risk tier) after a set window. A 48-hour stuck loop is a missing timeout, not a missing person.
+
+I operate this class of multi-agent system in production — checkpointed state, runs verified daily. Happy to review your escalation design and send back a plan + fixed price.
+https://origit892-stack.github.io/agent-operator/
+
+One question: of the 10, how many would lose nothing by proceeding without you for a full day? That&#x27;s your reversible tier — its size decides the queue design.</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-16 21:24 UTC. OP runs 10 agents; half waiting on them (one needs a decision, one wants a review, one stuck, one done for an hour unlooked-at); &quot;managing 10 agents is a full time job, I already had one.&quot; Fit C: discussion post (no explicit hiring) but the exact escalation-queue pain the kit solves (71-agent desk with tiered HITL); draft gives reversibility tiers + one structured inbox + auto-timeouts + review offer. If built: Agent System $2,000+ class (orchestration/escalation layer). SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261117-10</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-17 09:00 IST</span>
+  </div>
+  <h3>r/n8n: seeking technical co-founder for B2B sales/GTM automation (equity partnership, not a paid build)</h3>
+  <a class="src" href="https://www.reddit.com/r/n8n/comments/1xxi884/looking_for_a_technical_cofounder_partner_to/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your technical side reads exactly like what I build and operate in production — n8n-scale workflow systems, Python/JS data pipelines, enrichment and LLM orchestration: a 24/7 multi-agent ops desk (71 agents, checkpointed state, verified daily), an unattended pipeline with failure alerts.
+
+One honest note first: I work as an operator, not an equity co-founder — fixed-price builds and care plans, where you keep 100% of the business and I&#x27;m paid for systems that run. If that shape works — you own the GTM vision and the customers, I build and operate the prospecting/enrichment engine — we can start on working software instead of promises: a paid discovery build for one ICP (account research + enrichment + scoring), plan + fixed price in 24-48h.
+
+Proof: github.com/origit892-stack/Projects · https://origit892-stack.github.io/agent-operator/
+
+One question: what&#x27;s the first industry + size band you&#x27;d target? That decides whether the first build is a prospecting engine or a buying-signal monitor.</p></details><p class="notes">Reply in the r/n8n thread. Posted 2026-11-16 06:26 UTC (India-based; GTM/sales background; &quot;still early in my journey, don&#x27;t claim to have built or scaled a company&quot;); wants a technical co-founder to build AI-powered B2B SMB sales/GTM automation — account-based prospecting: discover/enrich accounts, ICP fit scoring, buying signals, prioritization, personalized outbound campaigns. Fit C: scope is an exact kit match BUT it&#x27;s an equity partnership request, not a paid build — the kit sells fixed-price builds/retainers; draft answers with the operator model + offers a paid discovery build as the entry. User decision expected: reject or counter. Two technical reply-bids already in-thread. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261116-01</span>
     <span class="fit fit-b">FIT B</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
