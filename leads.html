@@ -47,6 +47,50 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261119-01</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-19 09:00 IST</span>
+  </div>
+  <h3>n8n: automate supermarket cart from a Google Sheet (product/qty/brand -&gt; add to cart) — beginner asking which nodes</h3>
+  <a class="src" href="https://community.n8n.io/t/329458/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">&quot;Automate the purchase of products at a supermarket&quot; — a Google Sheet in, the cart out — is the class of workflow I build and run in production.
+
+Honest constraint first: a headless run starts logged out, and most supermarket sites block headless Chrome or throw a CAPTCHA once requests repeat. So the robust shape:
+1. Google Sheets node (From Sheet) -&gt; Loop Over Items, one product per row.
+2. Browser Tool node navigates to the product page, sets quantity from the row, clicks Add to cart — drive React/Vue quantity fields from the node&#x27;s JS action, not plain typing.
+3. If the chain exposes a commerce API, an HTTP Request node with Header Auth outlives every CSS selector — that&#x27;s the version I&#x27;d build.
+
+Proof you can check today: a 124-product store I run end-to-end via its official API — GET before write, read-back after every change — plus an unattended pipeline with failure alerts. I can wire the first one for you, ~$300 fixed.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which supermarket, and does it expose any commerce/partner API, or is it website-only? That decides the API path vs the browser path.</p></details><p class="notes">Reply in the n8n community thread (OPEN — closed:False verified 2026-11-19). Posted 2026-11-18 15:59 UTC (aprendiendon8n_wsant, Spanish-speaking, learning n8n). Wants to validate automating supermarket purchases: a Google Sheet [Product Name, Quantity, Product Brand] -&gt; supermarket URL -&gt; add the items to the cart; asks how + which nodes. A community member (relaybrook) already gave a solid technical answer (Sheets -&gt; Browser Tool, headless/CAPTCHA caveat, commerce-API-is-better); OP is following up confirming the Browser Tool node. Fit C: learning/guidance question, beginner, and the supermarket target has real anti-bot blockers (headless/CAPTCHA) — so the honest answer leads with the API path. If built: One Task $300 class (API or browser cart-filler). SEND CHANNEL: n8n community thread (user&#x27;s own account).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261119-02</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-19 09:00 IST</span>
+  </div>
+  <h3>n8n [HIRING] (thread CLOSED): Gumroad sales data -&gt; Airtable (email/date/amount/product id) — $1,000 budget, was scammed before</h3>
+  <a class="src" href="https://community.n8n.io/t/329131/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You&#x27;re opening a Gumroad store and want to &quot;export sales data from Gumroad to Airtable&quot; to follow up with customers — email, transaction date, amount, product id. That&#x27;s a clean, well-scoped data-sync workflow I build and run in production.
+
+You&#x27;ve been burned by a workflow that &quot;looked like it worked&quot; but didn&#x27;t — so this one is built to prove it actually works:
+1. Gumroad webhook on each new sale (API poll as the fallback) -&gt; one row per transaction.
+2. Map to your Airtable fields -&gt; write.
+3. Read-back verification: after every write, GET the row and confirm it landed, plus a daily recount of Gumroad vs Airtable so a missed event can&#x27;t hide. Idempotent on transaction id — replayed webhooks never double-write.
+
+Proof you can check today: I run a 124-product store end-to-end via its official API — GET before write, read-back after every change. Read-back is exactly what rules out a workflow that &quot;looks like it worked.&quot;
+https://origit892-stack.github.io/agent-operator/ · github.com/origit892-stack/Projects
+
+Your $1,000 budget covers this with room — I&#x27;ll send the exact fixed price after a quick mapping. Timeline: ~3 days.
+
+One question: is the Gumroad store already live with API/webhook access, or still pre-launch? That decides whether I wire the webhook now or start from the API poll.</p></details><p class="notes">⚠ THREAD CLOSED (closed:True) — channel = the Airtable form linked in the post: https://airtable.com/appkK1MZ2cLhJYQlR/pagE4pCmCjCzloG9u/form (user applies from own account). Posted 2026-11-17 02:14 UTC (kkrova). GAP-MISS: ~52h old — created just outside yesterday&#x27;s radar window (2026-11-17 07:00 UTC start), so it fell through the gap between daily runs; caught now, still a live [HIRING] thread. Wants to export Gumroad sales data -&gt; Airtable (email, transaction date, amount, product id) for customer follow-up on a new Gumroad store; was previously SCAMMED by a freelancer whose workflow &#x27;looked like it worked&#x27; but didn&#x27;t — so proof-of-delivery (read-back verification) is the whole pitch. Budget $1,000 (stated, above the $300 floor — no pay conflict). Fit B: clean data-sync build (Gumroad webhook/API -&gt; map -&gt; Airtable write + read-back + daily recount), One Task $300 class, ~3 days. Nothing sent by the machine — draft only; user decides + applies via the form.</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261118-02</span>
     <span class="fit fit-c">FIT C</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
