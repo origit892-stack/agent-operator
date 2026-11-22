@@ -47,6 +47,152 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261122-01</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>n8n: SMS + email to the prospect an hour before each Pipedrive-scheduled meeting (CloudTalk number)</h3>
+  <a class="src" href="https://community.n8n.io/t/329940/spoonfeed-me-great-people-of-n8n" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You want the prospect to get a text and an email an hour before each Pipedrive-scheduled meeting — that&#x27;s exactly the class of scheduled-nudge pipeline I build and run in production.
+
+The two details that break this workflow: trigger on a schedule, not on the meeting — poll Pipedrive every 15 minutes for meetings due in the next 55–65 minutes, because a Wait node dies when the workflow restarts; and send exactly once — store the activity ID after sending, so a rescheduled meeting doesn&#x27;t re-text. Also check your CloudTalk plan has API texting enabled; that&#x27;s the usual blocker, not n8n.
+
+Proof you can check today: a 24/7 multi-agent ops desk (71 agents, checkpointed, verified daily) and an unattended pipeline with a dedupe ledger and failure alerts. I can build this for you, fixed quote after a quick mapping.
+https://origit892-stack.github.io/agent-operator/
+
+One question: when a meeting gets rescheduled, should the reminder re-fire for the new time — and should it send a &#x27;your meeting moved&#x27; note too?</p></details><p class="notes">Reply in the n8n community thread (OPEN, replies enabled — verified 2026-11-22). Posted 2026-11-21 18:17 UTC (Daniel_Salman; &#x27;not super advanced in n8n&#x27;; Pipedrive scheduler sets the meeting; wants a text via their CloudTalk number + an email to the same prospect an hour before; asks &#x27;if anyone can assist with this workflow, and any code that might be required&#x27;). Fit B: scheduled dual-channel reminder + once-only guard — One Task $300 class. Thread already has a strong community answer (15-min poll, timezone watch, send-once) + one vendor pitch (Pond AI partner) — our draft complements with the concrete build offer, doesn&#x27;t repeat the poll advice verbatim. SEND CHANNEL: n8n community thread (user&#x27;s own account).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261122-02</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>n8n (Côte d&#x27;Ivoire): ebook sales — receive+verify payment, auto-send ebooks, manage orders, &#x27;use AI&#x27; (CinetPay/PayDunya rail)</h3>
+  <a class="src" href="https://community.n8n.io/t/329965/besoin-daide-pour-automatiser-mon-activite-de-vente-debooks-avec-n8n" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Payment-verified ebook delivery is exactly the class of pipeline I run in production — and the constraint to plan around is the payment rail: Stripe/PayPal won&#x27;t take Ivorian merchants, so the flow is a CinetPay/PayDunya checkout → their webhook → verify the payment against the provider&#x27;s API (never trust the payload alone) → deliver the ebook → mark it &#x27;delivered&#x27;, so a duplicate webhook never sends it twice.
+
+Proof you can check today: a 124-product store I run end-to-end via its official API — GET before write, read-back after every change — plus an unattended pipeline with a dedupe ledger and failure alerts. I can wire the first workflow (checkout → verify → deliver → log to Sheets) for you, ~$300 fixed; the WhatsApp Q&amp;A comes later.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how do you take payments today — already on CinetPay/PayDunya, or is that the first piece to set up?</p></details><p class="notes">Reply in the n8n community thread (OPEN, replies enabled — verified 2026-11-22). Posted 2026-11-22 01:32 UTC (Mae, beginner entrepreneur in Ivory Coast; ebook sales; wants automatic payment receive+verify, ebook send after confirmation, customer-inquiry management, order/sales automation, AI; blocked by n8n sales form needing a professional email). Fit C: real pain, beginner, modest budget; first community reply (kartike) already covers the architecture incl. CinetPay/PayDunya — our draft leads with the dedupe/&#x27;delivered flag&#x27; point + a concrete ~$300 build offer, which the reply didn&#x27;t make. SEND CHANNEL: n8n community thread (user&#x27;s own account).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261122-03</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>r/n8n: 4-provider enrichment flow (domain traffic, YouTube/X activity, work email) failing silently — wants one gateway (monid suggested)</h3>
+  <a class="src" href="https://www.reddit.com/r/n8n/comments/1y2is25/which_unified_api_tool_works_best_in_n8n_for/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your four-provider enrichment flow — domain traffic, YouTube/X activity, verified work email — failing silently and shifting fields is the classic multi-vendor problem: each API changes on its own schedule, and the one that&#x27;s down goes unnoticed.
+
+A single gateway tool (monid-style) cleans the canvas, but the real fix is the layer under it: one normalizer that maps every provider response into a fixed schema (domain, traffic score, last activity, verified email + confidence), so a field rename upstream becomes a schema error, not a silent pass-through. Plus a per-domain run log, so &#x27;which provider failed this week&#x27; is a query, not a guess. Keep the providers separate in credentials; unify the shape.
+
+Proof: an unattended extraction pipeline I run twice daily with a dedupe ledger and failure alerts, and a 24/7 multi-agent ops desk (71 agents, checkpointed, verified daily). I can build the gateway + normalizer for you, plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which of the four providers fails most — or is it &#x27;whichever one I check last&#x27;?</p></details><p class="notes">Reply in the r/n8n thread. Posted 2026-11-22 06:45 UTC (This-Succotash319; n8n workflow takes a list of domains from a sheet → checks basic site traffic → recent YouTube/X activity → finds a verified work email; currently 4 separate external nodes + 4 credential setups; &#x27;half the time one of them fails silently or changes a response field&#x27;; wants to simplify to one HTTP node; monid suggested in another thread). Fit B: multi-vendor enrichment + schema normalizer + per-domain run log — AI Employee $900 class; same family as L-20261117-04 (people-data at scale) and L-20261116-02 (per-source extractors). 1 comment — early, low competition. SEND CHANNEL: Reddit — user account still on the 21-day karma plan (reddit/REDDIT.md); parks here until the account passes the gate.</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261122-04</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>r/smallbusiness: service business (clients+projects+contractors) wants AI layer — email triage, auto lead/CRM updates, project tracking, contractor coordination, proactive reminders</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y2870n/small_business_owners_what_aipowered_crm_are_you/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Email triage, auto-updated lead records, project tracking, contractor coordination, proactive reminders — that&#x27;s five jobs, and no off-the-shelf CRM does all five without manual entry (exactly what you&#x27;re trying to escape). CRMs track well; AI inbox tools triage but don&#x27;t touch your CRM or your contractors. What covers all five is a thin custom layer over a simple CRM: one scheduled pass over new mail → extract and update records → draft replies for your approval; plus a nightly digest of what needs your attention.
+
+I operate this class of unattended system in production — a 24/7 multi-agent ops desk with runs verified daily, and an unattended pipeline with failure alerts — running on your own API keys, pay-per-use. If you want it built: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: where do your projects and contractor assignments live today — a spreadsheet, a project tool, or email? That decides which piece I wire first.</p></details><p class="notes">Reply in the r/smallbusiness thread. Posted 2026-11-21 21:36 UTC (Omar_Little_McNutty; &#x27;longtime business owner&#x27;, small service-based business with multiple clients, projects, independent contractors; wants: manage emails (read/identify/draft/approve before send), track leads+clients (auto-update records, conversations, proposals, follow-ups), manage projects (deadlines, deliverables, progress, outstanding tasks), coordinate contractors (assignments, availability, deadlines, communication), act as proactive AI assistant; &#x27;relatively simple and affordable&#x27;; explicitly asks &#x27;firsthand experiences rather than sales pitches&#x27;; 20 comments). Fit B: exact kit class (email triage + CRM auto-update + project/contractor tracking + proactive digest + HITL approval) — AI Employee $900 / Agent System $2,000+ class. SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261122-05</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>r/AI_Agents: two-job founder (construction coordinator + janitor) wants a bot: build+keep CRM, book appointments, build website, run Gmail campaigns — he only calls + approves</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y1y55e/okay_ive_finally_decided_its_time_for_me_to_look/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">A bot that builds the CRM, keeps it current, books appointments, builds the site and runs Gmail campaigns — with you only making calls and approving sends — is possible today, but it&#x27;s built in three phases, not one magic bot:
+
+1. The money loop first: lead comes in (form/site/email) → logged in the CRM → appointment booked → confirmation texted. Run it unattended for two weeks before anything else.
+2. Then the outreach layer: campaigns drafted, you approve with one tap.
+3. The website last, once the CRM has real data in it.
+
+I operate this class of system in production — a 24/7 multi-agent ops desk with runs verified daily, and an unattended pipeline with failure alerts. If you want phase 1 built: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how do facilities leads find you today — cold outreach, referrals, or inbound? That decides what the first workflow pulls from.</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-21 14:19 UTC (RaisinNo8617; by day construction project coordinating, at night janitor for an office building; dream = integrated facilities management company, heavily tech enabled; just tried Meta Muse and &#x27;kinda blew my mind&#x27;; wants a bot that can build a CRM, keep it up to date, book appointments, build a website, run email campaigns via his Gmail; &#x27;I will be hoping to only have to make phone calls and respond to any emails&#x27;; &#x27;Im a noob when it comes to AI&#x27;; asks &#x27;do you think this is possible yet? What should I use?&#x27;; 32 comments). Fit C: scope is an exact kit match (CRM + booking + site + campaigns + HITL) but noob stage, no budget signal, two jobs — draft answers the real question (possible, in 3 phases) with a restrained phase-1 build offer (One Task $300 entry). SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261122-06</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>r/AI_Agents: which dedicated mailbox for an agent&#x27;s email receiving (lumbox / Hostinger agentic mail / LobsterMail) — &#x27;the response part is where most agents get stuck&#x27;</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y2ixx2/best_approach_to_give_my_ai_agent_a_real_email/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Sending is the easy half; receiving is where it gets real, because a shared inbox means your agent is parsing bounces and junk forever. The shape that works: a dedicated mailbox per agent (that&#x27;s what the tools you named are for) — but the real requirement is API access to that mailbox, IMAP poll or a push webhook, so the agent reads incoming mail as data, not as a human&#x27;s inbox.
+
+What to check before picking: (1) raw API access to incoming mail, not just a UI; (2) how bounces surface — if a bounce lands as a plain email, the agent has to classify it; (3) cost per mailbox at your volume.
+
+I run unattended pipelines in production (a 24/7 ops desk, verified daily) and can wire mailbox → triage → draft-reply for your agent: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what should the agent do with replies — parse them into structured data, or draft responses for your review too?</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-22 06:55 UTC (Particular_Abies_409; building an agent; &#x27;the actual sending part is quick, but the response part is actually where most agents get stuck&#x27;; drawn to lumbox, hostinger agentic mail or lobstermail; 1 comment). Same family: https://www.reddit.com/r/AI_Agents/comments/1y2irxr/resend_or_a_dedicated_mailbox_api_for_my_ai_agent/ (posted 06:45 UTC, &#x27;resend or a dedicated mailbox api for my ai agent?&#x27;) — reply ONCE, primary = 1y2ixx2. Fit C: tool selection for agent email I/O; angle = API access to incoming mail + bounce surfacing + triage loop. If built: One Task $300 class. SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261122-07</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>r/smallbusiness (Argentina): machinery shop, 2,500 products / 16 suppliers, USD pricing on unstable FX — how often to reprice, notify customers, old-rate stock</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y29j8h/shop_owners_who_price_in_dollars_with_an_unstable/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">2,500 products, 16 suppliers, USD cost base on a moving rate — your &#x27;set the rate in one place&#x27; setup is the right architecture, and your three questions have standard answers:
+
+1. Frequency: reprice on a schedule (daily, fixed hour), not on a &#x27;the rate jumped&#x27; judgment — judgment-based repricing is what leaves half the catalog stale.
+2. Notification: don&#x27;t warn on every change — publish a dated price-list version (&#x27;current as of X&#x27;); a per-customer nudge only for open quotes about to expire.
+3. Old-rate stock: sell it at the old price until it&#x27;s gone — it&#x27;s already paid for; mixing old-rate and new-rate stock in one list is where the margin math breaks.
+
+I operate this class of unattended pipeline in production (scheduled pull, check, alert, log — a 24/7 ops desk, verified daily). If you want the rate→price-list automation built: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: is the price today one rate across all products, or a margin per supplier/category? That decides how the reprice table looks.</p></details><p class="notes">Reply in the r/smallbusiness thread. Posted 2026-11-21 22:37 UTC (Top_Ad_5864; &#x27;I help a small machinery shop here in Argentina&#x27; — ~2,500 products, 16 suppliers, most prices set in USD, FX rate moves all the time; current setup: rate set in one place, all prices update from there, &#x27;it works&#x27;; asks: how often to update (day/week/rate-jump), whether to warn customers, what to do with stock bought at the old rate; 9 comments). Fit C: OP is the helper, not the decision-maker; current setup works; questions are process, not a build ask. Draft answers the 3 questions (scheduled reprice, dated price-list version, sell old-rate stock at old price) + a restrained rate→price-list automation offer. If built: One Task $300 class. SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261122-08</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-22 09:00 IST</span>
+  </div>
+  <h3>r/AI_Agents: &#x27;least annoying way to approve agent actions from your phone&#x27; — 8 dashboard opens/day, Y/N texts, worries about approving the wrong thing</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y21lh2/whats_the_least_annoying_way_to_approve_agent/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Eight dashboard visits a day is the symptom; the fix is batching by risk class, not by event. What I run in production (a 71-agent desk, same problem at higher stakes):
+
+1. Anything reversible proceeds without asking — just logs. Your OK queue is irreversible or customer-facing actions only.
+2. One structured approval message per action — what it does, what it costs, one-tap approve/reject — and a daily batch digest for the low-risk tier.
+3. The wrong-tap fear: make the approval name the exact action (&#x27;approve: send quote #412 to X for $Y&#x27;) — a bare Y/N is how the wrong thing gets approved.
+
+I run this escalation design in production, execution logs verified daily. I can wire the same approval layer around your agents: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: of your 8 daily OKs, how many would lose nothing by proceeding without you for a day? That&#x27;s your auto-approve tier.</p></details><p class="notes">Reply in the r/AI_Agents thread. Posted 2026-11-21 16:51 UTC (Tough_Pizza5678; keeps agents on a short leash — anything that sends, buys or deletes needs his OK; current flow = text message with Y/N replies, &#x27;works, but I worry about approving the wrong thing when I&#x27;m half paying attention&#x27;; &#x27;opening a dashboard on my phone 8 times a day is miserable&#x27;; asks push vs chat app vs batching; 20 comments). Fit C: HITL approval-flow design — exactly the escalation-inbox class the 71-agent desk runs (reversibility tiers + structured one-tap approvals + daily digest); draft gives the 3-part design + a build offer. If built: One Task $300 class. SEND CHANNEL: Reddit — karma gate pending (reddit/REDDIT.md).</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261121-07</span>
     <span class="fit fit-b">FIT B</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
