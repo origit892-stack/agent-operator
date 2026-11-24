@@ -47,6 +47,258 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261124-01</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/automation: law firm vs consulting partner portal — ~90 unread client messages, asks how to organize + semi-automate the replies</h3>
+  <a class="src" href="https://www.reddit.com/r/automation/comments/1y40edc/how_would_you_organize_and_semiautomate_client/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You&#x27;re triaging a partner portal — roughly 90 unread client messages between a law firm and your consulting side — and you want the replies organized and semi-automated without losing legal nuance. I build and operate exactly this class of system in production.
+
+The shape that holds: bucket first — one pass tags each thread (billing, deadline, scope, status, urgent) into a fixed schema. Then draft, never send: the system drafts each reply from your precedent answers, a human sends. Ninety cold reads becomes a morning review of ninety drafts.
+
+Proof: a 24/7 multi-agent ops desk (71 agents, checkpointed state, runs verified daily) and an unattended pipeline with a dedupe ledger + failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: does the portal expose an API or an email export of threads, or is it read-only from a logged-in browser? That decides whether bucketing is a scheduled pull or a browser step.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-02</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/automation: replacing brittle headless-browser scraping in scheduled workflows with structured APIs (social posts + domain info) — which gateway</h3>
+  <a class="src" href="https://www.reddit.com/r/automation/comments/1y3ceo8/which_api_gateway_is_best_for_pulling_life_social/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Waking up Monday to broken headless-browser scrapes — you&#x27;re right to replace the brittle steps with structured calls, but the honest answer: no single gateway covers social posts + domain data. The pattern I run in production: one API per source (X, Mastodon/Bluesky, the domain-info feed you need), all behind a single normalizer that maps every response into one fixed schema (post, author, timestamp, domain, metrics). Your scheduled workflow calls one internal function, not six vendors — the LLM sees the schema, and a vendor field rename becomes a schema error instead of a silent broken Monday.
+
+Proof: an unattended extraction pipeline I run twice daily with a dedupe ledger + failure alerts, and a 24/7 multi-agent ops desk (71 agents, verified daily).
+https://origit892-stack.github.io/agent-operator/
+
+One question: which platforms do you actually pull from today — X, LinkedIn, or a mix? That decides which API tier costs money first.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-03</span>
+    <span class="fit fit-a">FIT A</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/AI_Agents: building a real-time voice + text AI assistant for an HRIS platform (ask attendance/leave/payroll + DO things: onboard, submit leave, update info) — exploring approaches</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y3ou4p/building_a_realtime_ai_voice_assistant_for_an/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">A voice + text assistant for your HRIS that doesn&#x27;t just answer but actually does — onboard, submit leave, update records — is exactly the class of agent system I build and operate in production. The three decisions that matter:
+
+1. Split intent from execution: the voice layer extracts a fixed intent + parameters; a deterministic layer validates it against HR policy (leave balance, eligibility); only then does anything write to the HRIS. Never let the model write directly.
+2. Read-back on every write: the assistant says &#x27;done&#x27; only after the HRIS confirms the change.
+3. Anything policy-adjacent (pay, disputed balances) routes to a human queue.
+
+Proof: a 24/7 multi-agent ops desk (71 agents, checkpointed, verified daily) and an unattended pipeline with failure alerts.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what&#x27;s the HRIS backend — a SaaS with an API, or in-house where I&#x27;d be adding the API layer too?</p></details><p class="notes">reply ONCE in the thread — same OP cross-posted to r/LLMDevs (https://www.reddit.com/r/LLMDevs/comments/1y3orgd/) — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-04</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/n8n: scheduled agents — how to tell a genuinely quiet night from a run that quietly did nothing</h3>
+  <a class="src" href="https://www.reddit.com/r/n8n/comments/1y3tkqu/scheduledagent_folks_how_do_you_tell_a_quiet/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your &#x27;quiet night&#x27; run that was actually broken has a name: a log line with no liveness proof. The pattern I run in production (71-agent desk, same problem at higher stakes):
+
+1. The run writes a heartbeat row — run id, start/end, what it found, what it did — not just a log line.
+2. A separate monitor job checks the heartbeat window: no fresh row → one alert, with context (last good run, what&#x27;s missing).
+3. Make the three states explicit: ran + nothing found (quiet), ran + acted, never ran. Only the third should page you.
+
+Proof: the ops desk runs exactly this — scheduled runs, execution logs verified daily. I can wire the same layer around your scheduled agents: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: where do the scheduled agents run — n8n Cloud or self-hosted? That decides whether the heartbeat store is a table, a file, or the platform&#x27;s own logs.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-05</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/n8n: subscribing to a busy WhatsApp group — turning the raw message flood into clean threads (support/ops/lead monitoring)</h3>
+  <a class="src" href="https://www.reddit.com/r/n8n/comments/1y3mti1/smart_subscribing_to_busy_whatsapp_groups_in_n8n/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Three conversations happening at once in a busy WhatsApp group, and the webhook only hands you raw messages — the fix is to stop treating it as a stream of messages and start treating it as a stream of threads:
+
+1. Key on the conversation, not the message: same sender within N minutes, or a reply-to, = same thread; everything else starts a new one.
+2. A short quiet window closes the thread, and only then an LLM pass summarizes: who, what was asked, what was promised, what&#x27;s unresolved.
+3. Output is one structured row per thread, not per message.
+
+I run this class of unattended pipeline in production (scheduled pull, check, alert, log — twice daily with failure alerts). I can wire the thread layer for your group: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: is the goal monitoring (seeing what&#x27;s happening) or action (responding/escalating)? That decides where the LLM pass sits.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-06</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/smallbusiness: 17 clients on a social-media API, only account manager just quit — all client talk goes through her; what to automate before the seat&#x27;s filled</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y3mfk8/17_clients_on_a_social_media_api_and_my_only/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your account manager is the single point of failure — 17 clients, every one of them talking to one person who&#x27;s leaving. The fix isn&#x27;t a faster hire; it&#x27;s a layer that doesn&#x27;t depend on the hire:
+
+1. One inbox: every client message (email/WhatsApp/DM) lands in a single queue tagged with client id, so nothing lives in one person&#x27;s phone.
+2. Draft layer: an LLM drafts replies from your standard answers (status, invoices, scheduling); you send. Even 20% of drafts covered means the queue stops dying with the AM.
+3. A weekly per-client digest: what they asked, what&#x27;s open, what needs you.
+
+I operate this class of system in production — a 24/7 multi-agent ops desk (71 agents, checkpointed, verified daily). If you want it built: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which channels do the 17 clients actually use — email, WhatsApp, or DMs? That decides which intake I wire first.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-07</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/smallbusiness: &#x27;Has anyone automated replies to Google and Yelp reviews using AI?&#x27; — looking for a good tool/approach</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y3kev2/has_anyone_automated_replies_to_google_and_yelp/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Automating Google + Yelp review replies is doable today, and the shape is simple:
+
+1. A scheduled job pulls new reviews from the Google Business Profile API (honest constraint first: Yelp has no reply API — that half stays a watched browser step or semi-manual).
+2. The LLM drafts per your rules: thanks + address the specific point + never argue, never invent. Bad-review replies use a separate, human-approved template — full auto-send is how businesses end up arguing with customers in public.
+3. You review from one inbox and send.
+
+Proof: an unattended pipeline I run twice daily with a dedupe ledger + failure alerts — same pattern, reviews instead of posts. I can build the pull + draft + review queue: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: one Google Business Profile, or a multi-location setup? That decides the polling design.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-08</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/nocode: 6-person ops team — orphaned Retool purchase-request approval app (dev left), needs rules non-technical staff can change</h3>
+  <a class="src" href="https://www.reddit.com/r/nocode/comments/1y44dut/whats_the_best_retool_alternative_for/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your Retool app is orphaned — the dev who built it left and nobody can touch the approval rules. Honest answer: the next no-code tool is the next orphan the moment your team can&#x27;t reason about it. The shape that survives:
+
+1. The flow is simple enough to fit on one page: request → manager → finance if over $2,000 → done.
+2. The rules live in a config a non-technical person edits (thresholds, approver list) — not in the app&#x27;s wiring.
+3. One run log per request, so &#x27;who approved what, when&#x27; is a query.
+
+Proof: a 24/7 multi-agent ops desk (verified daily) and a store run end-to-end via its API. Flat fixed price, unlimited internal users, no per-seat. Plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: is the app&#x27;s data in a database you still own (Postgres?), or did it live inside the app? That decides whether the migration is a move or a rebuild.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-09</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/LLMDevs: designing an agentic document-verification system for high-compliance finance/audit (10-25 linked PDFs/case vs buyer&#x27;s Excel/SOP checklist, hierarchical case graph)</h3>
+  <a class="src" href="https://www.reddit.com/r/LLMDevs/comments/1y43rky/for_teams_running_production_ai_agents_on/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your case graph and the strict extraction/verification split are the right architecture — from running this verification layer in production (checkpointed 71-agent desk, execution logs verified daily), the three places it actually breaks:
+
+1. Provenance is the product: carry [file_id, page_num, bounding_box] from extraction through to the AuditEvent — a RuleResult without its citation is where an audit starts doubting you.
+2. The deterministic layer owns the verdict: the model may propose a RuleResult; only the Python/SQL layer may confirm it. If the model can write &#x27;pass&#x27;, you don&#x27;t have verification, you have a narrator.
+3. Version the buyer&#x27;s Excel/SOP checklist itself, with a hash — a rule change after the fact invalidates the AuditEvents built on it.
+
+I build this evidence layer for clients: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how does the buyer&#x27;s checklist arrive — one Excel file per case, or a living SOP doc that changes? That decides how I version the rule layer.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-10</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/nocode: mid-flight state changes in no-code appointment workflows — cancel lands while the delayed confirmation is still queued</h3>
+  <a class="src" href="https://www.reddit.com/r/nocode/comments/1y3ljun/has_a_midflight_state_change_ever_broken_your/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">The cancel-while-confirmation-is-queued case is the classic stale-state bug, and the fix isn&#x27;t more careful ordering — it&#x27;s a state check at send time, not at queue time:
+
+1. When the confirmation fires, re-read the booking record. Cancelled → drop it silently and log it.
+2. Give each queued action an id and a &#x27;valid-if&#x27; condition — a queue entry is a claim, not a command.
+3. A nightly reconciliation: calendar contents vs booking-store contents; any mismatch alerts, so the bug shows up once instead of as surprises.
+
+I run this pattern in production (an unattended pipeline with failure alerts and reconciliation — runs verified daily). I can wire the guard into your no-code stack: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what actually holds the booking state — the calendar, a sheet, or an app? That decides where the re-read has to happen.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-11</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/smallbusiness (India): how do small B2B businesses decide which potential companies are worth pursuing — exploring targeting approaches</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y439tk/for_small_b2b_business_owners_how_do_you_decide/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Deciding which companies to pursue — the pattern that scales past gut feel: stop judging &#x27;is this a good fit&#x27; and start watching for trigger events. New office, funding, a job post for the role your service replaces, a stack they just adopted — those mark the moment a B2B company is actually receptive, and the window is days, not weeks.
+
+The system: a scheduled monitor pulls public signals for your ICP, one LLM pass scores each signal against your fixed criteria (size, stack, geography), you get a short daily list: company, signal, why it matters. No cold lists, no spray.
+
+I run this class of unattended monitoring pipeline in production (a 24/7 multi-agent ops desk, verified daily; a pipeline with a dedupe ledger + failure alerts). If you want it built: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what&#x27;s your ICP today — industry + size band + geography? That decides which public signals I&#x27;d monitor first.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-12</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/smallbusiness: B2B service firm — client PM went silent after a deployed milestone, invoice stuck right when staff payroll was due; polite follow-ups getting ignored</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y40uda/how_do_you_handle_b2b_clients_who_delay_milestone/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">A silent PM with an invoice stuck right before payroll — the fix is a touch plan that outlives your politeness:
+
+1. Every milestone gets a sign-off date at delivery with a fixed sequence: day 3 (friendly check + what&#x27;s needed to close), day 7 (firm, names the invoice date), day 14 (final, consequence stated plainly).
+2. Each touch references the milestone + the amount; any reply routes to you; sign-off stops the sequence immediately.
+3. One morning digest: what&#x27;s late, by how much, what&#x27;s queued next.
+
+I build and operate this class of unattended system in production — a 24/7 multi-agent ops desk with execution logs verified daily, and an unattended pipeline with failure alerts. I can wire it to how you invoice: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: where do milestones and invoices live today — a project tool, a sheet, or invoiced by hand? That decides where the touch plan hooks in.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261124-13</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-24T07:10:00.000000+00:00</span>
+  </div>
+  <h3>r/lowcode: 10-person design studio — Airtable base hitting record limit, slow, needs linked records + lookups + rollups for clients/projects/invoices</h3>
+  <a class="src" href="https://www.reddit.com/r/lowcode/comments/1y44uoj/our_base_hit_its_limit_so_whats_the_best_database/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Airtable hitting its record limit and your next need is linked records + rollups — at that point the honest answer: Airtable is no longer your database, it&#x27;s a UI on a database you should own. The shape for a 10-person studio:
+
+1. Postgres (or Supabase for the free tier) for clients, projects, invoices — linked records become joins, rollups become queries.
+2. A thin front-end the studio actually touches: list, edit, approve — one screen at a time.
+3. The data migrates with a mapping script, not by re-keying.
+
+I build and operate this class of internal tool in production (a 24/7 multi-agent ops desk, verified daily; a store run end-to-end via its official API). Flat fixed price, unlimited users, no per-seat. Plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: can you still export the base cleanly (CSV/API on your plan), or is part of the data locked behind a higher tier? That decides the migration shape.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261123-01</span>
     <span class="fit fit-a">FIT A</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
