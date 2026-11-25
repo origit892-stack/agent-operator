@@ -47,6 +47,317 @@ footer{margin-top:36px;color:var(--muted);font-size:12.5px;font-family:var(--mon
   <p class="muted warn">Payment link: <b>not set</b> — approved leads wait here until it is.</p>
   <article class="card">
   <div class="lhead">
+    <span class="lid">L-20261125-01</span>
+    <span class="fit fit-a">FIT A</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: wants an AI agent that finds companies every day and emails them — tried Claude Code, search &#x27;not efficient&#x27;, asks the cheapest flow</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4br6b/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You tried Claude Code and hit the right weakness: a general coding agent is not an efficient searcher. The shape that works at the cheapest cost: a scheduled job (n8n or a simple script on a free tier) → a fixed source list (the platforms you want companies from), each with its own extractor → dedupe against what you&#x27;ve already seen (one sheet/table) → one LLM pass scoring each new company against your criteria → one email per day. One model call per new company, not a browser crawl — at daily volume that&#x27;s cents per run.
+
+I operate this class of unattended monitoring pipeline in production — scheduled pull, extract, alert, failure notifications, verified daily. I can build the first version: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: where should the companies come from — Google search, specific directories, or job boards as a hiring signal? That decides the source list.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-02</span>
+    <span class="fit fit-a">FIT A</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: best way to build an AI agent that understands a business, interacts with customers, reads/writes Google Sheets/DB, remembers conversations</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4n56h/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your four requirements map to a standard architecture, and the one most people get wrong is letting the model write to Sheets directly. Split it:
+1. Business knowledge: ingest your service/process docs into a retrieval index (RAG) — the agent cites them, doesn&#x27;t improvise.
+2. Data: the model extracts a fixed intent + parameters; a deterministic layer validates and writes to Google Sheets or the database, then reads back before it says &#x27;done&#x27;.
+3. Memory: a per-customer conversation summary stored after each exchange — next time starts from there.
+4. Low-confidence or money/policy actions route to a human queue.
+
+I operate this class of system in production — a 24/7 multi-agent desk with checkpointed state, and a store run end-to-end via its API with read-back after every write. If you want it built: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: will the agent write to Google Sheets, a real database, or both — and what&#x27;s the riskiest thing it will write?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-03</span>
+    <span class="fit fit-a">FIT A</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/smallbusiness: auditing recurring 3PL/freight/supplier invoices for hidden overcharges, duplicates, missed SLA credits — &#x27;without spending half a day in Excel&#x27;</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y4utf9/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Month-end spot checks are why the overcharges keep slipping through. The pattern that catches them: a scheduled job pulls each recurring invoice (PDF/email/portal), extracts every line into a fixed schema (service, rate code, billed qty, billed rate), then three deterministic checks against your rate card — rate vs contract, duplicate invoice numbers, and SLA-miss windows that earned a credit. You get one exception list — what to dispute, with the math — instead of half a day in Excel. The LLM only touches lines the parser can&#x27;t place with confidence; everything else is logged and reproducible.
+
+I run this class of unattended extraction + reconciliation pipeline in production (a store run via its official API with read-back after every change; a 24/7 ops desk verified daily). I can build the audit layer: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how do the invoices arrive today — email PDFs, a 3PL portal export, or both?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-04</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/nocode (cross-posted r/WordPress 1y4a29o — reply ONCE): building architect needs an app — send approval requests to clients, score revisions with dates, project schedule + task management; no coding knowledge</h3>
+  <a class="src" href="https://www.reddit.com/r/nocode/comments/1y4a1ib/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Approvals to clients, revision scores with dates, schedule, task management — you can bolt this onto the WordPress site you already run, but the clean shape is a small dedicated app: one record per project (tasks + dates), a revisions table (round number, date, status), and an approval link the client opens — approve/reject with a note, every action timestamped. No login gymnastics for the client: one link per request.
+
+You said no coding knowledge — that&#x27;s exactly who this is for: I build and operate this class of system in production (a 24/7 multi-agent ops desk; a store run end-to-end via its API), and I ship with handover docs so you own it. Fixed price, ~5-10 days.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how do you send approval requests to clients today — email with PDF attachments, or through the WordPress site?</p></details><p class="notes">reply in the thread (primary r/nocode; same OP cross-posted r/WordPress — reply ONCE) — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-05</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: fiscal-rolls seller wants AI to find businesses in his county via Google Maps and message them on Viber/WA; &#x27;struggling to find someone who can help me&#x27;</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4rf57/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Finding businesses in your county and reaching them is a standard two-part pipeline: a scheduled job pulls businesses in your county from Google Maps (name, category, phone), keeps a contacted list so nobody is messaged twice, and hands you a fresh list daily. The honest half: bulk Viber/WA messages from a personal number is how accounts get banned — the shape that survives is human volume from your own number, or a Viber Business API line once you scale past a dozen a day.
+
+I build and operate this class of monitoring + outreach pipeline in production (scheduled pull, dedupe, failure alerts). If you want it built: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: roughly how many new businesses a day do you want to reach — a dozen, or a hundred? That decides whether it&#x27;s a daily list you send from, or an API line.</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-06</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/smallbusiness: monthly tea box, ~400 subscribers, 30-40 cancel/mo and the survey always says &#x27;other&#x27; — wants something that talks to them at cancel, offers pause/downgrade</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y4zll9/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">30-40 cancellations a month, all &#x27;other&#x27; — a survey is the wrong instrument; the answer is a conversation at the moment of cancel. The build: when someone hits cancel, a short flow (email or SMS, wherever they already are) asks two things — why, and would a pause or a smaller box keep them — answers land in one sheet as structured rows, and the pause/downgrade is applied automatically, so the save happens before you read it. On the Outcraft/Loopvoice question: at 400 subscribers, a purpose-built flow on your own email/SMS provider runs for cents and gives you the data; the omnichannel tool is what you&#x27;d buy when you outgrow that.
+
+I run this class of unattended pipeline in production (failure alerts, verified daily). I can build the cancel flow: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: where do cancellations happen today — a checkout page, an email link, or customer email?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-07</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: scheduled AI pipeline — product photos → story plan → beautified images → generated video → approval → TikTok; &#x27;very new to AI&#x27;</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4vmfy/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your imagined workflow is buildable — with one change: don&#x27;t let Claude improvise the story every time. Fix the script: one storyboard template (hook 0-2s, product 2-6s, call to action), the model fills the slots per product, and a review step holds each video until you approve — approval is the part that keeps the TikTok clean. The video-generation piece is the variable cost (per-second billing on most tools); budget around that.
+
+I operate exactly this class of unattended media pipeline in production — source in, rendered output out, with a dedupe ledger and failure alerts (my own publishing pipeline runs twice daily on this shape). I can wire photo library → story → render → your approval → TikTok: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which video tool are you thinking of using — or should I pick one by cost-per-second?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-08</span>
+    <span class="fit fit-b">FIT B</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/automation: reselling business — price research, listings, inventory, cross-marketplace tracking; looking at Vendoo/Nifty, asking what&#x27;s realistically automatable</h3>
+  <a class="src" href="https://www.reddit.com/r/automation/comments/1y4mt4l/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">The split for reselling: what to automate vs what stays human. Price research: fully automatable — a scheduled job pulls comparison prices from the marketplaces you sell on, computes fees + shipping per item, and hands you a buy-at-X/list-at-Y sheet. Inventory: one ledger (item, cost, where listed, status) that every sale updates — cross-listers like Vendoo/Nifty handle the listing writes; the ledger is what stops double-selling. Listing creation: templatable — photos + one model call per item. Human part: sourcing decisions (what to buy) and price exceptions.
+
+I build and operate this class of pipeline in production (scheduled pull, matching, alerts — a 24/7 ops desk verified daily). I can build the price + inventory layer: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which marketplaces do you sell on, and do they have APIs, or is it website-only?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-09</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: voice agent (Twilio→own server, US-East) feels laggy for European callers — how to measure latency per region</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4rp03/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">US-East to London adds ~140ms one-way on the wire alone — before your STT/LLM/TTS hops, that&#x27;s a second of round trip per turn, and &#x27;callers talk over the agent&#x27; is the classic symptom. Two fixes: (1) host at least the STT + TTS legs in a region near the caller — most providers have eu-west; and your test endpoint should exercise the EU stack, not the US one, or it measures the wrong thing. (2) Turn-by-turn measurement: log per-stage timestamps (ring, VAD start, STT end, LLM first token, TTS first audio) per call, bucketed by caller region — then you see exactly which leg bloats in Europe.
+
+I operate this class of unattended system in production (a 24/7 ops desk, verified daily). I can instrument the measurement layer or move the stack: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: are your STT and TTS on the same provider, and does it offer a eu-west endpoint?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-10</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: &#x27;cry for help&#x27; — 3 local Hermes agents on Telegram, 430M tokens/day on cache reads, wants the usage crisis fixed</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4mjh9/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">430M cache reads a day is not a model problem, it&#x27;s a context-design problem — something is re-reading the same big context on every loop iteration. The usual suspects, in order: (1) a system prompt + full history re-injected each step instead of incremental context; (2) tool outputs (a big file/JSON) left in the conversation window and re-sent every iteration; (3) agents that loop on &#x27;check state&#x27; with a large state blob in the prompt. The fix per agent: cap what enters the context (paths + summaries, not contents), move big data to files the agent reads on demand, and batch the check loops.
+
+I run a 71-agent desk with exactly this discipline — checkpointed state, small contexts, verified daily. I can audit your three agents&#x27; context flow and send the fixes: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what are the three agents each doing in their loops — and roughly how big is the context each one gets?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-11</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: internal knowledge agent (wiki/handbook/project docs) — wants to add meeting recordings/transcripts, privacy concerns, &#x27;which ones belong&#x27;</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4vimj/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Your instinct is right — a week of standups carries more privacy surface than a week of wiki pages. The pattern that holds: don&#x27;t ingest raw transcripts, ingest processed decisions. A job transcribes, then a pass extracts only the decision/action items (what was decided, who owns it, which project), each tagged with meeting + date, and only those rows go into the agent&#x27;s index. Raw audio stays out of the system, and per-meeting sensitivity is a flag — private 1:1s and people topics are skipped by rule, not by hope. That gives the team &#x27;what was decided in the call&#x27; answers without the agent hearing everyone&#x27;s voice.
+
+I operate this class of extraction + indexing pipeline in production (a 24/7 ops desk, verified daily). I can build the transcript → decisions layer: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: how do meeting recordings arrive today — a calendar tool&#x27;s cloud, a drive folder, or manually?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-12</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: &#x27;I am the bottleneck in my own agent setup&#x27; — multiple agents stuck waiting on review/permission, work pauses until he checks</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4z6zw/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Nothing is broken and you&#x27;re still the bottleneck — that&#x27;s an escalation-design problem, not a discipline one. The setup I run in production (a 71-agent desk, same problem at higher stakes):
+1. Split by reversibility — anything undoable proceeds and just logs; your queue gets only irreversible or customer-facing actions.
+2. One approval message per pending item, naming the exact action — not ten dashboards.
+3. Timeouts — nothing waits forever: an unanswered low-risk approval auto-proceeds after a window; a high-risk one auto-escalates with a cost-of-waiting note.
+
+The result is two review passes a day instead of continuous interrupt handling. I can wire this layer around your agents: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: of the actions your agents ask about daily, how many would lose nothing by proceeding without you for a day?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-13</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: designing a consumer-first personal AI agent on a Hermes base — iOS/Android/Mac/Windows/Cloud + Telegram/WhatsApp, planning to launch</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y50ksr/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Five platforms plus Telegram/WhatsApp from one core — the architecture question is where session state and memory live, not in any single app: the core owns identity, memory and tool access; each platform is a thin channel adapter (input format, notifications, auth) talking to the core over one interface. That&#x27;s what keeps five front-ends from drifting apart. Two things to settle before the first platform ships: (1) per-user data isolation if anyone but you will use it, and (2) the &#x27;I can&#x27;t do that&#x27; path — a clean fallback is what consumer users remember.
+
+I operate a multi-agent Hermes-based system in production (checkpointed state, verified daily) — the core pattern you&#x27;re describing, minus the consumer polish. Happy to review the architecture and send back notes + a fixed price.
+https://origit892-stack.github.io/agent-operator/
+
+One question: is the first launch iOS or Android, and is it you-only or multi-user from day one?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-14</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: support bot → human handoff — &#x27;the customer already explained the problem to the bot. Why do they have to repeat it to the agent?&#x27;</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4e4qi/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">The transcript alone fails because it records speech, not case state. What the human actually needs: the customer&#x27;s goal, what&#x27;s been tried, what&#x27;s blocked, what the customer already provided (order number, address), and the next step. The fix is a case object the bot maintains as it talks — not a log: every exchange updates a small structured record (goal, entities, tried, blocked, next). Handoff = the record + the last few turns, not the whole transcript. Your &#x27;change the delivery address&#x27; example: the bot should have already written the new address into the record, so the human&#x27;s first move is confirm, not re-collect.
+
+I build and operate this class of conversational system in production (a 24/7 ops desk with structured state, verified daily). I can design the case-object layer for your bot: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what does the human agent get today when the bot hands off — raw chat, a ticket, or nothing?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-15</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/LLMDevs: how much time/money to build a niche medical LLM (forms/regulations/standards) to resell as an AI provider — &#x27;just enough data&#x27;</h3>
+  <a class="src" href="https://www.reddit.com/r/LLMDevs/comments/1y4igai/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Honest answer before the cost: with &#x27;just enough data&#x27;, the model that gets you 95% of the value is not a trained LLM — it&#x27;s retrieval over your documents (RAG) on a strong base model, with a fine-tune only if your domain has language the base model systematically misses. A full medical-domain training on your data is a six-figure, months-long effort, and &#x27;selling it as an AI provider&#x27; on top of that is a different business than a working product. The pragmatic path: (1) RAG over your forms/regulations/standards with cited answers, (2) measure miss rates, (3) fine-tune a mid-size base model only if the misses are language-shaped, (4) then productize the API. That path is weeks, not months.
+
+I operate document pipelines in production (a 24/7 ops desk, extraction verified daily) and can build stage 1: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: roughly how many documents, and what&#x27;s the first user-facing task — answering questions, filling forms, or checking compliance?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-16</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents (cross-posted r/nocode 1y506ze — reply ONCE): platform to subscribe to a prebuilt niche-news agent on a schedule, or no-code alternative</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y506va/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">You can subscribe to a ready-made agent, but niche news on a defined schedule is a cheap custom build, not a subscription product — which is why most platforms don&#x27;t have exactly yours. The shape: a scheduled job (hourly/daily) pulls your niche&#x27;s sources (feeds, sites, forums), dedupes against what you&#x27;ve already been sent, one model pass filters + summarizes to your requirements, and you get one digest by email (or Telegram) at your set time. Runs on a free tier or pennies.
+
+I build and operate exactly this class of unattended pipeline in production — my own monitoring pipeline runs twice daily with a dedupe ledger and failure alerts. I&#x27;ll wire your niche version: ~$300 fixed, plan + done-definition in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: which sources define your niche, and how often — hourly or daily?</p></details><p class="notes">reply in the thread (primary r/AI_Agents; same OP cross-posted r/nocode — reply ONCE) — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-17</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/smallbusiness: fitness membership business 2 months in — needs receipts organized, taxes anticipated; blurred lines using personal accounts for card points</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y4kxpx/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Two months in and the lines blurred — the fix is a system that doesn&#x27;t depend on your weekly discipline: photograph receipts as they come in (phone camera is fine), and a nightly job extracts date, vendor, amount, category and files them into one sheet (or straight into your bookkeeping tool). Business vs personal becomes a tag at capture, and the card-points habit ends with a rule: business purchases go on the business account, no exceptions — points are worth less than a clean file at tax time.
+
+I run this class of extraction pipeline in production (a 24/7 ops desk, verified daily; a store run via its API with read-back after every write). I can build the receipt-to-sheets flow + a weekly tax snapshot: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: where should the organized receipts end up — a sheet for a bookkeeper, or inside a tool you already use?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-18</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/AI_Agents: solo dev building &#x27;Maize&#x27; — evidence-driven AI investigator (Cluestery platform) — asks which APIs and real cases to test her</h3>
+  <a class="src" href="https://www.reddit.com/r/AI_Agents/comments/1y4ta14/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">For an evidence-driven investigator, the test set matters more than the model. The two things I&#x27;d use: (1) real cases with known outcomes — court records, published investigations with follow-ups — so &#x27;was she right&#x27; is answerable, not vibes; (2) a harness that scores each answer on citation quality: does every claim link to a source, does the source actually support the claim (a cheap LLM judge against the cited text catches the &#x27;plausible but unsupported&#x27; failure), and does the agent know when evidence is insufficient instead of declaring. APIs for sourcing: structured records APIs first (government, registries, public records), web search only for the long tail, and a per-claim source log as a first-class output — that log is what makes her an investigator instead of a chatbot.
+
+I operate evidence-first pipelines in production (checkpointed state, read-back after every write) and can build the scoring harness: plan + fixed price in 24-48h.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what domain is your first batch of real cases — consumer disputes, property, financial?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
+    <span class="lid">L-20261125-19</span>
+    <span class="fit fit-c">FIT C</span>
+    <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
+    <span class="lupd muted">2026-11-25T07:39:36.305341+00:00</span>
+  </div>
+  <h3>r/smallbusiness: hours on Google Maps vs own website drift out of sync (holidays/schedule changes) — how do local places keep them the same</h3>
+  <a class="src" href="https://www.reddit.com/r/smallbusiness/comments/1y4qazx/" target="_blank" rel="noopener">source →</a>
+  <details><summary>draft</summary><p class="draft">Hours drift because Google and the website are two sources of truth. Make it one: a single place (a sheet or a settings page) where you enter hours and holidays once, and a small job syncs it — Google Business Profile via its API, the website via whatever renders the hours (widget, CMS, static page). One change, both places updated within the hour, and a holiday set is one entry. If the website can&#x27;t be written to programmatically, the fallback is a &#x27;current hours on Google&#x27; line — but sync it if you can.
+
+I build and operate this class of small unattended sync pipeline in production (scheduled job, API write, read-back verification — a 24/7 ops desk verified daily). I can wire the two-way sync: ~$300 fixed.
+https://origit892-stack.github.io/agent-operator/
+
+One question: what does your website run on — WordPress, Wix/Squarespace, or custom — and who edits it today?</p></details><p class="notes">reply in the thread — ⚠ user&#x27;s Reddit account still on the 21-day karma plan (reddit/REDDIT.md); parks until the account passes the gate</p>
+</article>
+<article class="card">
+  <div class="lhead">
     <span class="lid">L-20261124-01</span>
     <span class="fit fit-b">FIT B</span>
     <span class="badge" style="background:#f0883e22;color:#f0883e;border:1px solid #f0883e55">NEW</span>
